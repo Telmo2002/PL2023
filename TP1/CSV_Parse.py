@@ -1,37 +1,3 @@
-# import csv
-
-# class Parse:
-
-
-
-#     def __init__(self):
-#         self.pacientes = dict() # Dicionário com a informação geral dos pacientes
-#         self.size = 0 # Número de pacientes
-#         self.distribPSexo = list() # Array tamanho 2 para distribuição por sexo
-#         self.escaloes = list() # Array com tamanho igual ao número de escalões disponíveis
-#         self.LvlColestrol = list() # Array com tamanho igual ao nmr de niveis de colestrol existentes
-
-    
-
-
-    
-    
-    
-#     with open('myheart.csv', 'r') as csv_file:
-#         reader = csv.reader(csv_file)
-
-#     #max = 0
-#         i=0
-#         next(reader)
-#         min = 100
-#         for row in reader:
-#             print(row[3])
-#             #if int(row[0]) < min:
-#                 #min = int(row[0])
-        
-
-#     print(min)
-
 class Parse:
     
     def __init__(self):
@@ -58,18 +24,15 @@ class Parse:
                 if row[5] == "1":
                     # idade,sexo,tensão,colesterol,batimento,temDoença
                     #   0     1     2       3           4       5
-                    #pacientes = dict()
                     if "D" not in self.pacientes:
                         self.pacientes["D"] = []
-                    #if i not in self.pacientes["D"]:
-                    #    self.pacientes["D"][i] = []
+
                     self.pacientes["D"].append({"idade":int(row[0]), "sexo":row[1], "tensão":int(row[2]), "colesterol":int(row[3]), "batimento":int(row[4])})
                     
                 else:
                     if "ND" not in self.pacientes:
                         self.pacientes["ND"] = []
-                    #if i not in self.pacientes["ND"]:
-                    #    self.pacientes["ND"][i] = []
+
                     self.pacientes["ND"].append({"idade":int(row[0]), "sexo":row[1], "tensão":int(row[2]), "colesterol":int(row[3]), "batimento":int(row[4])})
                 i+=1
 
@@ -94,7 +57,7 @@ class Parse:
 
     def distEtaria(self):
         self.valuesIdade() 
-        
+
         # Descobrir onde começa o primeiro escalão
         escalao = 5 * (self.minIdade // 5)
         escalaoI = escalao
@@ -120,8 +83,6 @@ class Parse:
             colesterolValues.append(paciente["colesterol"])
         self.maxColesterol = max(colesterolValues)
         self.minColesterol = min(colesterolValues)
-        #return max(colesterolValues)
-
 
 
 
