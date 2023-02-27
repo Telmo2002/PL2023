@@ -44,7 +44,10 @@ def somatext():
             print("O resultado da soma é " + str(soma) + ".")
             break # Terminar logo após imprimir o resultado
 
-        else: 
+        else:
+            if lastChar.isnumeric() and isON:
+                soma += int(number)
+                number = "" 
             word = ""
             lastChar = char
 
